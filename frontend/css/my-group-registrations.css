@@ -121,12 +121,8 @@ h1 {
     color: var(--burgundy);
 }
 
-/* ========================================
-   RESPONSIVE DESIGN
-   My Group Registrations
-======================================== */
-
 /* Large tablets and small laptops */
+
 @media (max-width: 1024px) {
     .my-group-registrations-container {
         width: 95%;

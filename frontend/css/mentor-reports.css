@@ -274,11 +274,6 @@ td {
     color: #A83232;
 }
 
-
-/* =====================================
-   MENTOR REPORTS - RESPONSIVE DESIGN
-===================================== */
-
 /* Large desktop screens */
 @media (min-width: 1200px) {
     .reports-container {

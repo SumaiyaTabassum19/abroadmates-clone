@@ -191,7 +191,7 @@ function renderSessions(sessions) {
         `;
     }).join("");
 
-    // Attach one click handler to each Register button.
+// Attach one click handler to each Register button.
     sessionList.querySelectorAll(".register-btn").forEach(button => {
         button.addEventListener("click", () => {
             registerForSession(button.dataset.sessionId, button);

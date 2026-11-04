@@ -220,11 +220,6 @@ body {
         font-size: 14px;
     }
 
-    
-/* =====================================
-   MY BOOKINGS - RESPONSIVE DESIGN
-===================================== */
-
 /* Large desktop screens */
 @media (min-width: 1200px) {
     .my-bookings-container {

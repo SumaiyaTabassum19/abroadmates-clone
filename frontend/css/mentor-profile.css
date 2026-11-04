@@ -297,13 +297,6 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 14px;
 }
 
-/* Responsive */
-
-
-/* =====================================
-   MENTOR PROFILE - RESPONSIVE DESIGN
-===================================== */
-
 /* Large desktop screens */
 @media (min-width: 1200px) {
     .profile-container {

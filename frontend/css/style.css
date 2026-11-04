@@ -824,11 +824,6 @@ h2 em {
     font-size: .72rem
 }
 
-
-/* ==================================================
-   RESPONSIVE DESIGN - HOMEPAGE & STUDENT DASHBOARD
-================================================== */
-
 /* Tablet: 768px - 1023px */
 @media (max-width: 1023px) {
     .container {

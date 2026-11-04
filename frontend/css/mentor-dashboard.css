@@ -169,11 +169,6 @@
   color: #888 !important;
 }
 
-
-/* =====================================
-   MENTOR DASHBOARD - RESPONSIVE DESIGN
-===================================== */
-
 /* Large desktop screens */
 @media (min-width: 1200px) {
     .dashboard-container {

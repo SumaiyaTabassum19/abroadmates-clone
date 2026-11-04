@@ -232,12 +232,6 @@
     font-size: .72rem
 }
 
-
-
-/* ==========================================
-   AUTH RESPONSIVE DESIGN
-========================================== */
-
 @media (max-width: 1023px) {
     .auth-main {
         width: calc(100% - 48px);

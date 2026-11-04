@@ -322,11 +322,6 @@ button:disabled {
     cursor: not-allowed;
 }
 
-
-/* =====================================
-   MENTOR GROUP SESSIONS - RESPONSIVE
-===================================== */
-
 /* Large desktop screens */
 @media (min-width: 1200px) {
     .group-sessions-container {

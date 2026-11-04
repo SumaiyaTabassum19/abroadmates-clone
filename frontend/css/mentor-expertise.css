@@ -221,11 +221,6 @@ body {
     color: var(--burgundy);
 }
 
-
-/* =====================================
-   MENTOR EXPERTISE - RESPONSIVE DESIGN
-===================================== */
-
 /* Large desktop screens */
 @media (min-width: 1200px) {
     .expertise-container {

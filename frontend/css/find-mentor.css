@@ -283,11 +283,6 @@
     color: #555;
 }
 
-
-/* =====================================
-   FIND MENTOR - RESPONSIVE DESIGN
-===================================== */
-
 /* Large screens and laptops */
 @media (min-width: 1200px) {
     .fm-container {

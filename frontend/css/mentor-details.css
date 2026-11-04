@@ -325,11 +325,6 @@
     text-align: center;
 }
 
-
-/* =====================================
-   MENTOR DETAILS - RESPONSIVE DESIGN
-===================================== */
-
 /* Large desktop screens */
 @media (min-width: 1200px) {
     .details-container {

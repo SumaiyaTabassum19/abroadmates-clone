@@ -225,10 +225,6 @@ body {
 }
 
 
-/* =====================================
-   MENTOR SESSION ATTENDEES - RESPONSIVE
-===================================== */
-
 /* Large desktop screens */
 @media (min-width: 1200px) {
     .attendees-container {

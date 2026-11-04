@@ -314,11 +314,6 @@ body {
     color: var(--muted);
 }
 
-
-/* =====================================
-   GROUP SESSIONS - RESPONSIVE DESIGN
-===================================== */
-
 /* Large desktop screens */
 @media (min-width: 1200px) {
     .container {
