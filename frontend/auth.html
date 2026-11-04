@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Create an AbroadMates student or mentor account, or sign in.">
+  <meta name="theme-color" content="#A14646">
+  <title>Sign In & Up | AbroadMates</title>
+<link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body class="auth-page">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">Abroad<span>Mates</span><i>.</i></a>
+      <a class="auth-home-link" href="index.html">← Back to home</a>
+    </div>
+  </header>
+
+  <main class="auth-main">
+    <section class="auth-intro">
+      <div class="eyebrow"><span class="eyebrow-line"></span> YOUR NEXT CHAPTER STARTS HERE</div>
+      <h1>Good journeys<br><em>start together.</em></h1>
+      <p>Create an account to explore the AbroadMates community.</p>
+      <div class="auth-perks">
+        <div><span>✦</span>
+          <p><strong>Students</strong><small>Connect with mentors and plan your study journey.</small></p>
+        </div>
+        <div><span>↗</span>
+          <p><strong>Mentors</strong><small>Create a mentor profile and share your experience.</small></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="auth-card" aria-label="Account access">
+      <div class="auth-tabs" role="tablist" aria-label="Choose sign in or registration">
+        <button class="auth-tab active" type="button" data-mode="login" role="tab" aria-selected="true">Log in</button>
+        <button class="auth-tab" type="button" data-mode="register" role="tab" aria-selected="false">Create an
+          account</button>
+      </div>
+
+      <div id="authNotice" class="auth-notice" role="status" aria-live="polite" hidden></div>
+
+      <form id="loginForm" class="auth-form">
+        <div class="form-heading"><span class="panel-kicker">WELCOME BACK</span>
+          <h2>Log in to AbroadMates</h2>
+          <p>Use the email and password linked to your account.</p>
+        </div>
+        <label for="loginEmail">Email address</label>
+        <input id="loginEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+        <label for="loginPassword">Password</label>
+        <input id="loginPassword" name="password" type="password" autocomplete="current-password"
+          placeholder="Enter your password" required>
+        <button class="button button-primary auth-submit" type="submit">Log in <span>→</span></button>
+      </form>
+
+      <form id="registerForm" class="auth-form" hidden>
+        <div class="form-heading"><span class="panel-kicker">JOIN THE COMMUNITY</span>
+          <h2>Create your account</h2>
+          <p>Start with your basic details. You can complete your profile later.</p>
+        </div>
+        <label for="registerRole">I want to join as</label>
+        <select id="registerRole" name="role" required>
+          <option value="Student">Student</option>
+          <option value="Mentor">Mentor</option>
+        </select>
+        <label for="registerName">Full name</label>
+        <input id="registerName" name="fullName" type="text" minlength="2" maxlength="120" autocomplete="name"
+          placeholder="Your full name" required>
+        <label for="registerEmail">Email address</label>
+        <input id="registerEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+        <label for="registerPassword">Password <span class="label-hint">(at least 8 characters)</span></label>
+        <input id="registerPassword" name="password" type="password" minlength="8" autocomplete="new-password"
+          placeholder="Create a password" required>
+        <label for="confirmPassword">Confirm password</label>
+        <input id="confirmPassword" name="confirmPassword" type="password" minlength="8" autocomplete="new-password"
+          placeholder="Enter password again" required>
+        <button class="button button-primary auth-submit" type="submit">Create account <span>→</span></button>
+      </form>
+      <p class="auth-footnote">By continuing, you agree to use the platform respectfully and provide accurate account
+        information.</p>
+    </section>
+  </main>
+  <footer class="auth-footer"><span>© <span id="year"></span> AbroadMates</span><span>Study abroad, with
+      guidance.</span></footer>
+  <script src="js/auth.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,549 @@
+
+.fm-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 7%;
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+
+.fm-logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: #A14646;
+    text-decoration: none;
+}
+
+.fm-logo span {
+    color: #DA6556;
+}
+
+.fm-header nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.fm-header nav a {
+    text-decoration: none;
+    color: #444;
+}
+
+.fm-header nav a.active {
+    color: #A14646;
+    font-weight: 700;
+}
+
+.fm-logout {
+    border: none;
+    background: #A14646;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.fm-hero {
+    background: linear-gradient(120deg, #A14646, #DA6556, #EB895B);
+    color: white;
+    padding: 48.8px 8%;
+}
+
+.fm-hero > div {
+    max-width: 750px;
+}
+
+.fm-eyebrow {
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.fm-hero h1 {
+    font-size: clamp(32px, 5vw, 48px);
+    margin: 15px 0;
+}
+
+.fm-hero p:last-child {
+    line-height: 1.7;
+}
+
+.fm-container {
+    max-width: 1250px;
+    margin: 33.8px auto;
+    padding: 0 22px;
+}
+
+.fm-search {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 22.5px;
+}
+
+.fm-search input {
+    flex: 1;
+    min-width: 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 9px;
+    font-size: 15px;
+}
+
+.fm-search button {
+    padding: 0 21px;
+    background: #A14646;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+.fm-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.fm-filters {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.04);
+}
+
+.fm-filter-heading,
+.fm-results-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fm-filter-heading h2,
+.fm-results-heading h2 {
+    color: #333;
+    margin-top: 0;
+}
+
+.fm-filter-heading button {
+    color: #A14646;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.fm-filters label {
+    display: block;
+    margin: 20px 0 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #555;
+}
+
+.fm-filters select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+}
+
+.fm-results-heading p {
+    color: #888;
+    margin-top: -8px;
+}
+
+.fm-mentor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 22px;
+}
+
+.fm-card {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,.05);
+    transition: transform .2s, box-shadow .2s;
+}
+
+.fm-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.09);
+}
+
+.fm-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    background: #f5e8df;
+}
+
+.fm-card-content {
+    padding: 18px;
+}
+
+.fm-card h3 {
+    margin: 0 0 7px;
+    color: #333;
+}
+
+.fm-headline {
+    color: #888;
+    font-size: 14px;
+}
+
+.fm-stats {
+    display: flex;
+    justify-content: space-between;
+    margin: 18px 0;
+    color: #666;
+    font-size: 13px;
+}
+
+.fm-price {
+    color: #A14646;
+    font-weight: 800;
+    font-size: 19px;
+}
+
+.fm-view-btn {
+    display: block;
+    text-align: center;
+    background: #A14646;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.fm-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 33.8px 15px;
+    background: #fff8f2;
+    border-radius: 12px;
+    color: #765;
+}
+
+/* EXPORT SECTION */
+
+.export-section {
+    margin-top: 21px;
+    padding: 20px;
+    background: #fff8f2;
+    border: 1px solid #f0ded4;
+    border-radius: 12px;
+}
+
+.export-section h3 {
+    margin: 0 0 14px;
+    color: #444;
+    font-size: 17px;
+}
+
+.export-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.export-buttons button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #A14646;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s ease;
+}
+
+.export-buttons button:hover {
+    background: #DA6556;
+}
+
+.export-buttons button:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+.export-message {
+    margin: 12px 0 0;
+    font-size: 13px;
+    color: #555;
+}
+
+
+/* =====================================
+   FIND MENTOR - RESPONSIVE DESIGN
+===================================== */
+
+/* Large screens and laptops */
+@media (min-width: 1200px) {
+    .fm-container {
+        width: 92%;
+    }
+
+    .fm-layout {
+        grid-template-columns: 260px minmax(0, 1fr);
+        gap: 30px;
+    }
+}
+
+/* Tablets and small laptops */
+@media (max-width: 1024px) {
+    .fm-header {
+        padding: 16px 4%;
+    }
+
+    .fm-header nav {
+        gap: 14px;
+    }
+
+    .fm-hero {
+        padding: 42px 5%;
+    }
+
+    .fm-container {
+        margin: 28px auto;
+        padding: 0 18px;
+    }
+
+    .fm-layout {
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .fm-filters {
+        padding: 17px;
+    }
+
+    .fm-mentor-grid {
+        grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+        gap: 16px;
+    }
+
+    .fm-card img {
+        height: 185px;
+    }
+}
+
+/* Tablets and mobile devices */
+@media (max-width: 800px) {
+    .fm-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 18px 20px;
+    }
+
+    .fm-header nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
+    .fm-hero {
+        padding: 38px 6%;
+        text-align: center;
+    }
+
+    .fm-hero > div {
+        margin: 0 auto;
+    }
+
+    .fm-hero h1 {
+        font-size: clamp(28px, 6vw, 40px);
+    }
+
+    .fm-container {
+        width: 100%;
+        margin: 25px auto;
+        padding: 0 18px;
+    }
+
+    .fm-layout {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .fm-filters {
+        width: 100%;
+    }
+
+    .fm-results-heading {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .fm-mentor-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .fm-card img {
+        height: 190px;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 600px) {
+    .fm-header {
+        padding: 15px;
+    }
+
+    .fm-logo {
+        font-size: 23px;
+    }
+
+    .fm-header nav {
+        gap: 10px 14px;
+    }
+
+    .fm-header nav a {
+        font-size: 13px;
+    }
+
+    .fm-logout {
+        padding: 9px 14px;
+    }
+
+    .fm-hero {
+        padding: 32px 20px;
+    }
+
+    .fm-hero h1 {
+        font-size: 29px;
+        line-height: 1.2;
+    }
+
+    .fm-hero p:last-child {
+        font-size: 14px;
+    }
+
+    .fm-container {
+        padding: 0 14px;
+        margin: 22px auto;
+    }
+
+    .fm-search {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .fm-search input {
+        width: 100%;
+        padding: 13px;
+        font-size: 16px;
+    }
+
+    .fm-search button {
+        min-height: 45px;
+        padding: 12px 18px;
+    }
+
+    .fm-filters {
+        padding: 16px;
+    }
+
+    .fm-filter-heading h2,
+    .fm-results-heading h2 {
+        font-size: 19px;
+    }
+
+    .fm-results-heading p {
+        font-size: 13px;
+        margin-top: 0;
+    }
+
+    .fm-mentor-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .fm-card img {
+        height: 220px;
+    }
+
+    .fm-card-content {
+        padding: 16px;
+    }
+
+    .fm-stats {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .fm-price {
+        font-size: 18px;
+    }
+
+    .export-section {
+        padding: 15px;
+    }
+
+    .export-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .export-buttons button {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+/* Very small mobile devices */
+@media (max-width: 360px) {
+    .fm-header nav {
+        gap: 9px;
+    }
+
+    .fm-header nav a {
+        font-size: 12px;
+    }
+
+    .fm-hero h1 {
+        font-size: 25px;
+    }
+
+    .fm-container {
+        padding: 0 11px;
+    }
+
+    .fm-filters {
+        padding: 13px;
+    }
+
+    .fm-card img {
+        height: 185px;
+    }
+
+    .fm-stats {
+        font-size: 12px;
+    }
+}
+
+    .fm-search button {
+        padding: 14px;
+    }
+
+    .export-buttons {
+        flex-direction: column;
+    }
+
+    .export-buttons button {
+        width: 100%;
+    }
+

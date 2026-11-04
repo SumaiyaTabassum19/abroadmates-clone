@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Explore study destinations, universities and mentorship opportunities with AbroadMates.">
+    <meta name="theme-color" content="#A14646">
+    <title>AbroadMates</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a class="brand" href="#">Abroad<span>Mates</span><i>.</i></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false"
+                aria-controls="mainNav"><span></span><span></span><span></span></button>
+            <nav class="main-nav" id="mainNav">
+                <a class="nav-link active" href="#">Home</a>
+                <a class="nav-link" href="#explore">Explore countries</a><a class="nav-link" href="#how-it-works">How it works</a>
+                <a class="nav-link" href="#why-abroadmates">Why AbroadMates</a>
+                <a class="nav-link" href="#contact">Contact</a>
+                <a class="nav-cta" href="#explore">Get started <span>↗</span></a>
+                <a class="nav-cta" href="auth.html">Log in</a>
+                <!-- <a class="nav-cta" href="auth.html">Join AbroadMates</a> -->
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <div class="eyebrow"><span class="eyebrow-line"></span> YOUR NEXT CHAPTER STARTS HERE</div>
+                    <h1>Make your study abroad dream<br><em>a clear plan.</em></h1>
+                    <p class="hero-lead">Make your study abroad journey feel simpler. Explore destinations, discover
+                        universities and get guidance from people who understand the process.</p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#explore">Explore destinations
+                            <span>→</span></a>
+                        <a class="text-link" href="#how-it-works">See how it works
+                            <span>↗</span></a>
+                    </div>
+                    </div>
+                    <!-- <div class="hero-proof">
+                        <div class="proof-avatars"><b>AM</b><b>🎓</b><b>✦</b></div><span>One step closer to your global
+                            future</span>
+                    </div> -->
+                <!-- Orbit -->
+                <div class="hero-visual" aria-label="Illustration representing global study opportunities">
+                    <div class="visual-orbit orbit-one"></div>
+                    <div class="visual-orbit orbit-two"></div>
+                    <div class="visual-globe"><span class="globe-symbol">✦</span><span class="globe-label">YOUR
+                            WORLD<br>OF POSSIBILITIES</span></div>
+                    <div class="visual-note note-top"><span class="note-icon">⌖</span><span><strong>Explore
+                                globally</strong><small>Find your destination</small></span></div>
+                    <div class="visual-note note-bottom"><span class="note-icon">↗</span><span><strong>Move with
+                                clarity</strong><small>Plan your next step</small></span></div><span
+                        class="spark spark-a">✳</span><span class="spark spark-b">✦</span>
+                </div>
+            </div>
+            <!-- <div class="hero-bottom container"><span>STUDY ABROAD, WITH GUIDANCE.</span><span>SCROLL TO EXPLORE ↓</span>
+            </div> -->
+        </section>
+        <section class="explore-section section" id="explore">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <div class="eyebrow"><span class="eyebrow-line"></span> START EXPLORING</div>
+                        <h2>Find a place to <em>begin.</em></h2>
+                    </div>
+                    <p>Choose a destination and explore universities available in our directory.</p>
+                </div>
+                <div class="explore-panel">
+                    <div class="panel-top">
+                        <div><span class="panel-kicker">DESTINATION FINDER</span>
+                            <h3>Where would you like to study?</h3>
+                        </div>
+                        <div class="step-number">01 <span>/ 02</span></div>
+                    </div>
+                    <div id="statusMessage" class="status-message" role="status" aria-live="polite"><span
+                            class="status-dot"></span><span>Loading destinations…</span></div>
+                    <div class="select-grid">
+                        <div class="field-group"><label for="countrySelect"><span class="field-number">01</span> Select
+                                country</label>
+                            <div class="select-shell"><select id="countrySelect" disabled>
+                                    <option value="">Loading countries…</option>
+                                </select><span class="select-arrow">⌄</span></div>
+                        </div>
+                        <div class="field-group"><label for="universitySelect"><span class="field-number">02</span>
+                                Select university</label>
+                            <div class="select-shell"><select id="universitySelect" disabled>
+                                    <option value="">Choose a country first</option>
+                                </select><span class="select-arrow">⌄</span></div>
+                        </div>
+                    </div>
+                    <div id="universityDetails" class="university-details" hidden></div>
+                    
+                    <div class="mentor-explore-link">
+    <a href="./country-mentors.html?countryId=1">
+        Explore United States Mentors →
+    </a>
+</div>
+                    <div class="panel-foot"><span>✦ &nbsp; Your journey, one decision at a time.</span><span>More
+                            destinations coming soon</span></div>
+                </div>
+            </div>
+        </section>
+        <section class="how-section section" id="how-it-works">
+            <div class="container">
+                <div class="section-heading centered">
+                    <div class="eyebrow"><span class="eyebrow-line"></span> A LITTLE GUIDANCE GOES A LONG WAY</div>
+                    <h2>Your journey, <em>made clearer.</em></h2>
+                    <p>Take it one step at a time with helpful information and a supportive community.</p>
+                </div>
+                <div class="steps-grid">
+                    <article class="step-card">
+                        <div class="step-top"><span class="step-icon">⌖</span><span class="step-index">01</span></div>
+                        <h3>Explore options</h3>
+                        <p>Discover destinations and browse universities that connect with your goals.</p><a
+                            href="#explore" class="card-link">Explore destinations <span>↗</span></a>
+                    </article>
+                    <article class="step-card featured">
+                        <div class="step-top"><span class="step-icon">✳</span><span class="step-index">02</span></div>
+                        <h3>Learn from mentors</h3>
+                        <p>Get practical perspectives from people with relevant study experience.</p><a href="#contact"
+                            class="card-link">Meet the community <span>↗</span></a>
+                    </article>
+                    <article class="step-card">
+                        <div class="step-top"><span class="step-icon">↗</span><span class="step-index">03</span></div>
+                        <h3>Plan your journey</h3>
+                        <p>Turn what you learn into a thoughtful plan for your next steps.</p><a href="#contact"
+                            class="card-link">Get started <span>↗</span></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="why-abroadmates">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <div class="eyebrow"><span class="eyebrow-line"></span> SUPPORT THAT MOVES WITH YOU</div>
+                        <h2>Make informed choices, <em>with confidence.</em></h2>
+                    </div>
+                    <p>Good planning starts with clear information and real perspectives. AbroadMates brings useful
+                        starting points together in one place.</p>
+                </div>
+                <div class="steps-grid">
+                    <article class="step-card">
+                        <div class="step-top"><span class="step-icon">◎</span><span class="step-index">01</span></div>
+                        <h3>Explore destinations</h3>
+                        <p>Compare study destinations and begin discovering universities by country.</p>
+                    </article>
+                    <article class="step-card">
+                        <div class="step-top"><span class="step-icon">✦</span><span class="step-index">02</span></div>
+                        <h3>Get peer guidance</h3>
+                        <p>Learn from mentors who can share useful insights about their study journeys.</p>
+                    </article>
+                    <article class="step-card">
+                        <div class="step-top"><span class="step-icon">↗</span><span class="step-index">03</span></div>
+                        <h3>Take your next step</h3>
+                        <p>Build a clearer plan using relevant information, support and resources.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer" id="contact">
+        <div class="container footer-main"><a class="brand brand-light" href="#">Abroad<span>Mates</span><i>.</i></a>
+            <p>Helping make your next chapter feel closer.</p><a class="footer-top" href="#">BACK TO TOP ↑</a>
+        </div>
+        <div class="container footer-bottom"><span>© <span id="year"></span> AbroadMates</span><span>Study abroad, with
+                guidance.</span></div>
+    </footer>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

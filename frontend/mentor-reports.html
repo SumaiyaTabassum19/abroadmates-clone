@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Reports | AbroadMates</title>
+    <link rel="stylesheet" href="./css/mentor-reports.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a class="brand" href="./index.html">AbroadMates</a>
+        <div class="nav-links">
+            <a href="./mentor-dashboard.html">Dashboard</a>
+            <a href="./mentor-bookings.html">Manage Bookings</a>
+            <button id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="page-header">
+            <div>
+                <span class="eyebrow">MENTOR PANEL</span>
+                <h1>Earnings & Booking Reports</h1>
+                <p>Review your consultation activity and completed-session earnings.</p>
+            </div>
+            <button id="exportCsvBtn" class="button">Export CSV</button>
+        </header>
+
+        <p id="message" class="message" role="status"></p>
+
+        <section class="filters">
+            <label>
+                From
+                <input type="date" id="startDate">
+            </label>
+            <label>
+                To
+                <input type="date" id="endDate">
+            </label>
+            <label>
+                Booking status
+                <select id="statusFilter">
+                    <option value="all">All statuses</option>
+                    <option value="pending">Pending</option>
+                    <option value="confirmed">Confirmed</option>
+                    <option value="completed">Completed</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
+            </label>
+            <button id="applyFiltersBtn" class="button">Apply Filters</button>
+            <button id="resetFiltersBtn" class="button secondary">Reset</button>
+        </section>
+
+        <section class="summary-grid">
+            <article class="summary-card">
+                <span>Total bookings</span>
+                <strong id="totalBookings">0</strong>
+            </article>
+            <article class="summary-card">
+                <span>Pending</span>
+                <strong id="pendingBookings">0</strong>
+            </article>
+            <article class="summary-card">
+                <span>Confirmed</span>
+                <strong id="confirmedBookings">0</strong>
+            </article>
+            <article class="summary-card">
+                <span>Completed</span>
+                <strong id="completedBookings">0</strong>
+            </article>
+            <article class="summary-card">
+                <span>Cancelled</span>
+                <strong id="cancelledBookings">0</strong>
+            </article>
+            <article class="summary-card earnings-card">
+                <span>Completed-session earnings</span>
+                <strong id="totalEarnings">BDT 0.00</strong>
+                <small>Only completed bookings are counted.</small>
+            </article>
+        </section>
+
+        <section class="report-section">
+            <h2>Monthly Earnings</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Completed bookings</th>
+                            <th>Earnings</th>
+                        </tr>
+                    </thead>
+                    <tbody id="monthlyEarningsBody">
+                        <tr><td colspan="3">Loading report...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="report-section">
+            <h2>Booking Details</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Booking</th>
+                            <th>Student</th>
+                            <th>Duration</th>
+                            <th>Price</th>
+                            <th>Scheduled date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookingsBody">
+                        <tr><td colspan="6">Loading bookings...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="./js/mentor-reports.js"></script>
+</body>
+</html>

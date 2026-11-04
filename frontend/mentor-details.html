@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Details | AbroadMates</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/mentor-details.css">
+</head>
+<body>
+
+<header class="md-header">
+    <a href="./index.html" class="md-logo">Abroad<span>Mates</span></a>
+
+    <nav>
+        <a href="./index.html">Home</a>
+        <a href="./find-mentor.html">Find a Mentor</a>
+        <a href="./student-dashboard.html">Dashboard</a>
+        <button id="logoutBtn" class="md-logout">Logout</button>
+    </nav>
+</header>
+
+<main class="md-container">
+
+    <div id="loadingMessage" class="md-message">
+        Loading mentor profile...
+    </div>
+
+    <div id="errorMessage" class="md-message md-error" hidden></div>
+
+    <div id="mentorContent" hidden>
+
+        <section class="md-profile">
+            <img id="mentorPhoto" src="" alt="Mentor profile photo">
+
+            <div class="md-profile-info">
+                <p class="md-eyebrow">ABROADMATES MENTOR</p>
+                <h1 id="mentorName"></h1>
+                <p id="mentorHeadline" class="md-headline"></p>
+                <p id="mentorExperience"></p>
+                <p id="mentorBio" class="md-bio"></p>
+            </div>
+        </section>
+
+        <div class="md-columns">
+
+            <section class="md-information">
+
+                <div class="md-section">
+                    <h2>Countries Supported</h2>
+                    <div id="mentorCountries" class="md-tags"></div>
+                </div>
+
+                <div class="md-section">
+                    <h2>Universities</h2>
+                    <div id="mentorUniversities"></div>
+                </div>
+
+                <div class="md-section">
+                    <h2>Programs</h2>
+                    <div id="mentorPrograms" class="md-tags"></div>
+                </div>
+
+                <div class="md-section">
+                    <h2>Services</h2>
+                    <div id="mentorServices" class="md-tags"></div>
+                </div>
+
+                <div class="md-section">
+                    <h2>Scholarships</h2>
+                    <div id="mentorScholarships"></div>
+                </div>
+
+            </section>
+
+            <aside class="md-booking">
+
+                <h2>Book a Consultation</h2>
+                <p class="md-booking-intro">
+                    Choose a consultation plan and request a convenient time.
+                </p>
+
+                <form id="bookingForm">
+
+                    <label for="planSelect">Consultation Plan</label>
+                    <select id="planSelect" required>
+                        <option value="">Choose a plan</option>
+                    </select>
+
+                    <div id="selectedPlanInfo" class="md-plan-info">
+                        Select a consultation plan to see its price.
+                    </div>
+
+                    <label for="bookingDate">Date and Time</label>
+                    <input
+                        type="datetime-local"
+                        id="bookingDate"
+                        required
+                    >
+
+                    <label for="studentNote">Message to Mentor</label>
+                    <textarea
+                        id="studentNote"
+                        rows="4"
+                        maxlength="1000"
+                        placeholder="Briefly describe what you need guidance with..."
+                    ></textarea>
+
+                    <button type="submit" id="bookingSubmit">
+                        Request Booking
+                    </button>
+
+                    <div id="bookingMessage" role="status"></div>
+
+                </form>
+
+                <p class="md-booking-note">
+                    Your booking will remain pending until the mentor confirms it.
+                </p>
+
+            </aside>
+
+        </div>
+    </div>
+
+    <section class="public-reviews">
+    <div class="reviews-heading">
+        <div>
+            <p class="reviews-eyebrow">STUDENT FEEDBACK</p>
+            <h2>Reviews & Ratings</h2>
+        </div>
+
+        <div id="ratingSummary" class="rating-summary">
+            Loading ratings...
+        </div>
+    </div>
+
+    <div id="publicReviewsList">
+        <p>Loading reviews...</p>
+    </div>
+</section>
+
+</main>
+
+<script src="./js/mentor-details.js"></script>
+<script src="./js/mentor-reviews.js"></script>
+</body>
+</html>

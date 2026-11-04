@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Group Sessions | AbroadMates</title>
+    <link rel="stylesheet" href="./css/mentor-group-sessions.css">
+</head>
+<body>
+
+<header class="topbar">
+    <a href="./index.html" class="brand">AbroadMates</a>
+
+    <nav>
+        <a href="./mentor-dashboard.html">Dashboard</a>
+        <a href="./mentor-profile.html">My Profile</a>
+        <a href="./group-sessions.html">Public Sessions</a>
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+    </nav>
+</header>
+
+<main class="container">
+
+    <section class="page-heading">
+        <p class="eyebrow">MENTOR DASHBOARD</p>
+        <h1>Manage Group Sessions</h1>
+        <p>Create and manage your study abroad group sessions.</p>
+    </section>
+
+    <div id="message" class="message" role="status"></div>
+
+    <section class="form-card">
+        <div class="section-heading">
+            <h2 id="formTitle">Create a Group Session</h2>
+            <button type="button" id="resetFormBtn" class="secondary-btn">
+                Clear Form
+            </button>
+        </div>
+
+        <form id="sessionForm">
+
+            <input type="hidden" id="sessionId">
+
+            <div class="form-grid">
+
+                <div class="form-group full-width">
+                    <label for="title">Session Title *</label>
+                    <input
+                        type="text"
+                        id="title"
+                        maxlength="180"
+                        required
+                        placeholder="Example: How to Apply for Canadian Universities"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="categoryId">Category *</label>
+                    <select id="categoryId" required>
+                        <option value="">Select a category</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="capacity">Maximum Participants *</label>
+                    <input
+                        type="number"
+                        id="capacity"
+                        min="1"
+                        value="20"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="startsAt">Start Date & Time *</label>
+                    <input type="datetime-local" id="startsAt" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="endsAt">End Date & Time *</label>
+                    <input type="datetime-local" id="endsAt" required>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="description">Description</label>
+                    <textarea
+                        id="description"
+                        rows="4"
+                        placeholder="What will students learn in this session?"
+                    ></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="meetingLink">Meeting Link (HTTPS)</label>
+                    <input
+                        type="url"
+                        id="meetingLink"
+                        maxlength="500"
+                        placeholder="https://..."
+                    >
+                    <small>
+                        Add a meeting link when it is ready. Share it only
+                        with registered students through an appropriate
+                        confirmed-session workflow.
+                    </small>
+                </div>
+
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" id="saveBtn" class="primary-btn">
+                    Create Session
+                </button>
+
+                <button
+                    type="button"
+                    id="cancelEditBtn"
+                    class="secondary-btn hidden"
+                >
+                    Stop Editing
+                </button>
+            </div>
+
+        </form>
+    </section>
+
+    <section class="sessions-section">
+        <div class="section-heading">
+            <h2>Your Group Sessions</h2>
+            <button type="button" id="refreshBtn" class="secondary-btn">
+                Refresh
+            </button>
+        </div>
+
+        <div id="sessionList" class="session-list">
+            <p class="loading">Loading your sessions...</p>
+        </div>
+    </section>
+
+</main>
+
+<script src="./js/mentor-group-sessions.js"></script>
+</body>
+</html>

@@ -1,0 +1,457 @@
+:root {
+    --burgundy: #A14646;
+    --coral: #DA6556;
+    --orange: #EB895B;
+    --peach: #FDB773;
+    --dark: #342626;
+    --muted: #766969;
+    --background: #fff9f4;
+    --white: #ffffff;
+    --border: #f0ded4;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+.topbar {
+    min-height: 72px;
+    padding: 14px 7%;
+    background: white;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    color: var(--burgundy);
+    font-size: 24px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.topbar nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.topbar nav a {
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.logout-btn,
+.secondary-btn,
+.attendance-btn {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.logout-btn {
+    background: var(--burgundy);
+    color: white;
+}
+
+.secondary-btn {
+    background: var(--peach);
+    color: var(--dark);
+}
+
+.container {
+    width: min(1050px, 90%);
+    margin: 33.8px auto 52.5px;
+}
+
+.page-heading {
+    margin-bottom: 21px;
+}
+
+.eyebrow {
+    color: var(--coral);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.page-heading h1 {
+    color: var(--burgundy);
+    font-size: clamp(30px, 5vw, 40px);
+    margin: 8px 0;
+}
+
+.page-heading p:last-child {
+    color: var(--muted);
+}
+
+.session-summary {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 23px;
+    margin-bottom: 21px;
+}
+
+.session-summary h2 {
+    color: var(--burgundy);
+    margin-bottom: 8px;
+}
+
+.session-summary p {
+    color: var(--muted);
+}
+
+.attendees-section {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 23px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    color: var(--burgundy);
+    font-size: 22px;
+}
+
+.attendee-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.attendee-card:last-child {
+    border-bottom: none;
+}
+
+.student-name {
+    color: var(--dark);
+    font-weight: 800;
+}
+
+.student-email,
+.registered-date {
+    color: var(--muted);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.attendee-status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: capitalize;
+    margin-top: 7px;
+}
+
+.attendee-status.registered {
+    background: #fff0d9;
+    color: #95600c;
+}
+
+.attendee-status.attended {
+    background: #e4f5e9;
+    color: #24723b;
+}
+
+.attendee-status.cancelled {
+    background: #fbe5e5;
+    color: #a33333;
+}
+
+.attendance-btn {
+    background: var(--burgundy);
+    color: white;
+    white-space: nowrap;
+}
+
+.attendance-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.empty-state,
+.loading {
+    padding: 22.5px;
+    text-align: center;
+    color: var(--muted);
+}
+
+.message {
+    display: none;
+    padding: 13px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.message.success {
+    display: block;
+    background: #e4f5e9;
+    color: #24723b;
+}
+
+.message.error {
+    display: block;
+    background: #fbe5e5;
+    color: #a33333;
+}
+
+
+/* =====================================
+   MENTOR SESSION ATTENDEES - RESPONSIVE
+===================================== */
+
+/* Large desktop screens */
+@media (min-width: 1200px) {
+    .attendees-container {
+        max-width: 1150px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .attendees-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+    }
+}
+
+/* Tablets and small laptops */
+@media (max-width: 1024px) {
+    .attendees-container {
+        width: 94%;
+    }
+
+    .attendees-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .attendee-card {
+        padding: 18px;
+    }
+
+    .attendees-header {
+        padding: 18px 22px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 800px) {
+    .attendees-header {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+    }
+
+    .attendees-nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
+    .attendees-container {
+        width: calc(100% - 36px);
+        margin: 25px auto;
+    }
+
+    .attendees-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .attendees-sidebar {
+        width: 100%;
+        position: static;
+    }
+
+    .attendees-filters {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .attendees-filters input,
+    .attendees-filters select {
+        flex: 1 1 180px;
+        min-width: 0;
+    }
+
+    .attendees-table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .attendees-table {
+        min-width: 650px;
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+    .attendees-header {
+        flex-direction: column;
+        padding: 14px;
+    }
+
+    .attendees-nav {
+        gap: 10px 14px;
+    }
+
+    .attendees-nav a {
+        font-size: 13px;
+    }
+
+    .attendees-container {
+        width: calc(100% - 28px);
+        margin: 20px auto;
+    }
+
+    .attendees-title {
+        font-size: 24px;
+        line-height: 1.3;
+    }
+
+    .attendees-subtitle {
+        font-size: 14px;
+    }
+
+    .attendees-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .attendees-sidebar {
+        padding: 15px;
+    }
+
+    .attendees-filters {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .attendees-filters input,
+    .attendees-filters select,
+    .attendees-filters button {
+        width: 100%;
+        min-height: 44px;
+        font-size: 16px;
+    }
+
+    .attendees-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .attendee-card {
+        width: 100%;
+        padding: 16px;
+    }
+
+    .attendee-card h3 {
+        font-size: 18px;
+    }
+
+    .attendee-card p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .attendee-card button,
+    .attendee-card .btn {
+        width: 100%;
+        min-height: 44px;
+    }
+
+    .attendee-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        font-size: 13px;
+    }
+
+    .attendees-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+    }
+
+    .attendees-actions button,
+    .attendees-actions a {
+        width: 100%;
+    }
+
+    .attendees-table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .attendees-table {
+        min-width: 600px;
+        font-size: 13px;
+    }
+
+    .attendees-table th,
+    .attendees-table td {
+        padding: 10px;
+    }
+
+    .attendees-empty,
+    .attendees-loading {
+        padding: 22px 12px;
+        font-size: 14px;
+    }
+}
+
+/* Very small mobile screens */
+@media (max-width: 360px) {
+    .attendees-container {
+        width: calc(100% - 22px);
+    }
+
+    .attendees-title {
+        font-size: 21px;
+    }
+
+    .attendee-card {
+        padding: 13px;
+    }
+
+    .attendees-nav {
+        gap: 9px 11px;
+    }
+
+    .attendees-nav a {
+        font-size: 12px;
+    }
+}

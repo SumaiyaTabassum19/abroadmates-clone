@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Expertise | AbroadMates</title>
+    <link rel="stylesheet" href="./css/mentor-expertise.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <a class="brand" href="./mentor-dashboard.html">AbroadMates</a>
+        <a class="back-link" href="./mentor-dashboard.html">← Dashboard</a>
+    </header>
+
+    <main class="container">
+        <section class="page-heading">
+            <p class="eyebrow">MENTOR WORKSPACE</p>
+            <h1>My Expertise & Consultation Plans</h1>
+            <p>Choose the countries and universities you can guide students about, then set your consultation prices.</p>
+        </section>
+
+        <form id="expertiseForm">
+
+            <section class="panel">
+                <h2>1. Countries I support</h2>
+                <p class="section-help">Select all the countries you can provide guidance about.</p>
+                <div id="countriesList" class="selection-grid">
+                    Loading countries...
+                </div>
+            </section>
+
+            <section class="panel">
+                <h2>2. Universities I know</h2>
+                <p class="section-help">Choose universities from your selected countries.</p>
+                <div id="universitiesList">
+                    <p class="empty-message">Select a country first.</p>
+                </div>
+            </section>
+
+            <section class="panel">
+                <h2>3. Consultation plans</h2>
+                <p class="section-help">Set your price for each consultation duration.</p>
+
+                <div class="plans-grid">
+                    <div class="plan-card">
+                        <h3>20-minute consultation</h3>
+                        <label for="price20">Price</label>
+                        <div class="price-input">
+                            <select id="currency20" aria-label="20-minute plan currency">
+                                <option value="BDT">BDT</option>
+                                <option value="USD">USD</option>
+                                <option value="GBP">GBP</option>
+                                <option value="EUR">EUR</option>
+                                <option value="CAD">CAD</option>
+                                <option value="AUD">AUD</option>
+                            </select>
+                            <input id="price20" type="number" min="0" step="0.01" placeholder="e.g. 500">
+                        </div>
+                    </div>
+
+                    <div class="plan-card">
+                        <h3>40-minute consultation</h3>
+                        <label for="price40">Price</label>
+                        <div class="price-input">
+                            <select id="currency40" aria-label="40-minute plan currency">
+                                <option value="BDT">BDT</option>
+                                <option value="USD">USD</option>
+                                <option value="GBP">GBP</option>
+                                <option value="EUR">EUR</option>
+                                <option value="CAD">CAD</option>
+                                <option value="AUD">AUD</option>
+                            </select>
+                            <input id="price40" type="number" min="0" step="0.01" placeholder="e.g. 900">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="form-actions">
+                <button type="submit" id="saveButton">Save my expertise</button>
+                <p id="statusMessage" role="status"></p>
+            </div>
+
+        </form>
+    </main>
+
+    <script src="./js/mentor-expertise.js"></script>
+</body>
+</html>

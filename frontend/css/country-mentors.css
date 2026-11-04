@@ -1,0 +1,411 @@
+
+:root {
+    --burgundy: #A14646;
+    --coral: #DA6556;
+    --orange: #EB895B;
+    --peach: #FDB773;
+    --background: #FFF8F3;
+    --white: #FFFFFF;
+    --text: #302323;
+    --muted: #766767;
+    --border: #F0D8CB;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.navbar {
+    min-height: 72px;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 15px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.brand {
+    color: var(--burgundy);
+    font-size: 25px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav-links a:hover,
+.back-link:hover {
+    color: var(--coral);
+}
+
+.container {
+    width: min(1100px, 92%);
+    margin: 30px auto;
+}
+
+.country-hero {
+    padding: 41.2px 33.8px;
+    border-radius: 18px;
+    color: white;
+    background: linear-gradient(120deg, var(--burgundy), var(--coral));
+    margin-bottom: 28.5px;
+}
+
+.eyebrow {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.country-hero h1 {
+    font-size: clamp(30px, 5vw, 44px);
+    margin-bottom: 12px;
+}
+
+.country-hero p:last-child {
+    max-width: 700px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.section-heading h2 {
+    color: var(--burgundy);
+    font-size: 26px;
+}
+
+#mentorCount {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.back-link {
+    color: var(--burgundy);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.mentor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.mentor-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mentor-photo {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 10px;
+    background: #F5E8E0;
+}
+
+.mentor-card h3 {
+    color: var(--burgundy);
+    font-size: 20px;
+}
+
+.mentor-headline {
+    color: var(--muted);
+    min-height: 44px;
+}
+
+.mentor-meta {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.mentor-price {
+    font-weight: 700;
+    color: var(--burgundy);
+}
+
+.view-profile-btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background: var(--burgundy);
+    color: white;
+    padding: 11px;
+    border-radius: 8px;
+    font-weight: 700;
+    margin-top: auto;
+}
+
+.view-profile-btn:hover {
+    background: var(--coral);
+}
+
+.message {
+    display: none;
+    padding: 13px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+}
+
+.message.error {
+    display: block;
+    background: #FCEAEA;
+    color: #A52F2F;
+}
+
+.loading,
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 26.2px 15px;
+    color: var(--muted);
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+
+/* =====================================
+   COUNTRY MENTORS - RESPONSIVE DESIGN
+===================================== */
+
+/* Large desktop screens */
+@media (min-width: 1200px) {
+    .container {
+        width: min(1100px, 90%);
+    }
+
+    .mentor-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+    }
+}
+
+/* Tablets and small laptops */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 15px 4%;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .container {
+        width: 94%;
+    }
+
+    .country-hero {
+        padding: 34px 28px;
+    }
+
+    .mentor-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .mentor-card {
+        padding: 17px;
+    }
+}
+
+/* Tablets and smaller screens */
+@media (max-width: 800px) {
+    .navbar {
+        justify-content: center;
+        flex-direction: column;
+        gap: 13px;
+        padding: 16px 20px;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 12px 20px;
+    }
+
+    .container {
+        width: calc(100% - 36px);
+        margin: 24px auto;
+    }
+
+    .country-hero {
+        padding: 30px 24px;
+        margin-bottom: 24px;
+    }
+
+    .country-hero h1 {
+        font-size: clamp(28px, 5vw, 38px);
+    }
+
+    .section-heading {
+        flex-wrap: wrap;
+    }
+
+    .section-heading h2 {
+        font-size: 23px;
+    }
+
+    .mentor-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .mentor-photo {
+        height: 180px;
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 550px) {
+    .navbar {
+        padding: 14px;
+    }
+
+    .brand {
+        font-size: 23px;
+    }
+
+    .nav-links {
+        width: 100%;
+        gap: 10px 15px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .container {
+        width: calc(100% - 28px);
+        margin: 20px auto;
+    }
+
+    .country-hero {
+        padding: 25px 18px;
+        border-radius: 13px;
+    }
+
+    .eyebrow {
+        font-size: 11px;
+        letter-spacing: 1.5px;
+    }
+
+    .country-hero h1 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .country-hero p:last-child {
+        font-size: 14px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        gap: 9px;
+        margin-bottom: 17px;
+    }
+
+    .section-heading h2 {
+        font-size: 21px;
+    }
+
+    #mentorCount {
+        font-size: 13px;
+    }
+
+    .mentor-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .mentor-card {
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .mentor-photo {
+        height: 210px;
+    }
+
+    .mentor-card h3 {
+        font-size: 19px;
+    }
+
+    .mentor-headline {
+        min-height: auto;
+        font-size: 14px;
+    }
+
+    .mentor-meta {
+        font-size: 13px;
+    }
+
+    .view-profile-btn {
+        padding: 12px;
+    }
+
+    .loading,
+    .empty-state {
+        padding: 22px 12px;
+        font-size: 14px;
+    }
+}
+
+/* Very small mobile screens */
+@media (max-width: 360px) {
+    .container {
+        width: calc(100% - 22px);
+    }
+
+    .brand {
+        font-size: 21px;
+    }
+
+    .nav-links {
+        gap: 9px 12px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .country-hero h1 {
+        font-size: 25px;
+    }
+
+    .mentor-photo {
+        height: 180px;
+    }
+}
+

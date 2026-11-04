@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Mentor | AbroadMates</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/find-mentor.css">
+</head>
+<body>
+
+<header class="fm-header">
+    <a href="./index.html" class="fm-logo">Abroad<span>Mates</span></a>
+
+    <nav>
+        <a href="./index.html">Home</a>
+        <a href="./find-mentor.html" class="active">Find a Mentor</a>
+        <a href="./student-dashboard.html">Dashboard</a>
+        <button id="logoutBtn" class="fm-logout" type="button">Logout</button>
+    </nav>
+</header>
+
+<section class="fm-hero">
+    <div>
+        <p class="fm-eyebrow">YOUR STUDY ABROAD JOURNEY STARTS HERE</p>
+        <h1>Find the Right Mentor</h1>
+        <p>Connect with experienced mentors who can guide your international education journey.</p>
+    </div>
+</section>
+
+<main class="fm-container">
+
+    <section class="fm-search">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search mentor name..."
+        >
+        <button id="searchBtn" type="button">Search</button>
+    </section>
+
+    <section class="fm-layout">
+
+        <aside class="fm-filters">
+            <div class="fm-filter-heading">
+                <h2>Filters</h2>
+                <button id="resetFilters" type="button">Reset</button>
+            </div>
+
+            <label for="countryFilter">Country</label>
+            <select id="countryFilter">
+                <option value="">All countries</option>
+            </select>
+
+            <label for="programFilter">Program</label>
+            <select id="programFilter">
+                <option value="">All programs</option>
+            </select>
+
+            <label for="serviceFilter">Service</label>
+            <select id="serviceFilter">
+                <option value="">All services</option>
+            </select>
+
+            <label for="scholarshipFilter">Scholarship</label>
+            <select id="scholarshipFilter">
+                <option value="">All scholarships</option>
+            </select>
+
+            <label for="sortFilter">Sort by</label>
+            <select id="sortFilter">
+                <option value="top_rated">Top rated</option>
+                <option value="most_sessions">Most sessions</option>
+                <option value="low_price">Lowest price</option>
+            </select>
+        </aside>
+
+        <section class="fm-results">
+
+            <div class="fm-results-heading">
+                <div>
+                    <h2>Available Mentors</h2>
+                    <p id="resultCount">Loading mentors...</p>
+                </div>
+            </div>
+
+            <div id="mentorList" class="fm-mentor-grid"></div>
+
+            <div class="export-section">
+                <h3>Export Mentor List</h3>
+
+                <div class="export-buttons">
+                    <button type="button" id="exportExcelBtn">
+                        <span>↓</span> Export to Excel
+                    </button>
+
+                    <button type="button" id="exportPdfBtn">
+                        <span>↓</span> Export to PDF
+                    </button>
+                </div>
+
+                <p id="exportMessage" class="export-message"></p>
+            </div>
+
+        </section>
+    </section>
+</main>
+
+<!-- Excel -->
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+<!-- jsPDF -->
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
+
+<!-- jsPDF AutoTable -->
+<script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.4/dist/jspdf.plugin.autotable.min.js"></script>
+
+<!-- Main JavaScript -->
+<script src="./js/find-mentor.js"></script>
+
+</body>
+</html>

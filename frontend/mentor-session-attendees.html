@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Attendees | AbroadMates</title>
+    <link rel="stylesheet" href="./css/mentor-session-attendees.css">
+</head>
+<body>
+
+<header class="topbar">
+    <a href="./index.html" class="brand">AbroadMates</a>
+
+    <nav>
+        <a href="./mentor-dashboard.html">Dashboard</a>
+        <a href="./mentor-group-sessions.html">Manage Sessions</a>
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+    </nav>
+</header>
+
+<main class="container">
+
+    <section class="page-heading">
+        <p class="eyebrow">MENTOR DASHBOARD</p>
+        <h1>Session Attendees</h1>
+        <p>View registrations and record student attendance.</p>
+    </section>
+
+    <div id="message" class="message" role="status"></div>
+
+    <section class="session-summary">
+        <h2 id="sessionTitle">Loading session...</h2>
+        <p id="sessionDate"></p>
+        <p id="sessionStatus"></p>
+    </section>
+
+    <section class="attendees-section">
+        <div class="section-heading">
+            <h2>Registered Students</h2>
+            <button id="refreshBtn" class="secondary-btn">Refresh</button>
+        </div>
+
+        <div id="attendeeList">
+            <p class="loading">Loading registrations...</p>
+        </div>
+    </section>
+
+</main>
+
+<script src="./js/mentor-session-attendees.js"></script>
+</body>
+</html>

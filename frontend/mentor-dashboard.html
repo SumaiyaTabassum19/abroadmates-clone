@@ -1,0 +1,164 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#A14646">
+  <title>AbroadMates Dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/mentor-dashboard.css">
+</head>
+
+<body class="auth-page">
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">Abroad<span>Mates</span><i>.</i></a>
+      <a href="./mentor-profile.html">My Profile</a>
+      <a href="./mentor-expertise.html">Consultation Plans</a>
+      <a href="./mentor-group-sessions.html">Manage Sessions</a>
+      <a href="./mentor-bookings.html">Manage Bookings</a>
+      <a href="./mentor-reports.html">Earnings & Reports</a>
+      <button id="logoutButton" class="button button-primary">Log out</button>
+    </div>
+  </header>
+
+  <main class="auth-main dashboard-main">
+
+    <section class="auth-intro">
+      <div class="eyebrow">
+        <span class="eyebrow-line"></span>
+        YOUR ABROADMATES SPACE
+      </div>
+
+      <h1 id="welcomeTitle">Welcome!</h1>
+      <p id="welcomeCopy">
+        Your account is ready. This is the starting point for your dashboard.
+      </p>
+    </section>
+
+    <!-- ACCOUNT DETAILS -->
+    <section class="auth-card dashboard-account">
+      <span class="panel-kicker">ACCOUNT DETAILS</span>
+
+      <h2 id="accountName">Loading account…</h2>
+      <p id="accountEmail"></p>
+      <p id="accountRole"></p>
+
+      <div id="mentorProfileStatus" class="auth-notice" hidden></div>
+
+      <p class="auth-footnote">
+        Manage your account, mentor profile, consultation plans and sessions.
+      </p>
+
+      <a class="button button-primary" href="index.html">
+        Back to homepage →
+      </a>
+    </section>
+
+    <!-- MENTOR ANALYTICS -->
+    <section id="mentorAnalytics" class="mentor-analytics" hidden>
+
+      <div class="analytics-heading">
+        <div>
+          <span class="panel-kicker">MENTOR OVERVIEW</span>
+          <h2>Dashboard Analytics</h2>
+          <p>Track your bookings, earnings and student feedback.</p>
+        </div>
+
+        <a href="./mentor-bookings.html" class="button button-primary">
+          Manage Bookings →
+        </a>
+      </div>
+
+      <p id="analyticsMessage" class="analytics-message">
+        Loading your analytics...
+      </p>
+
+      <!-- STATISTICS -->
+      <div id="analyticsCards" class="analytics-grid" hidden>
+
+        <article class="analytics-card">
+          <span class="analytics-label">Total Bookings</span>
+          <h3 id="totalBookings">0</h3>
+          <p>All bookings</p>
+        </article>
+
+        <article class="analytics-card">
+          <span class="analytics-label">Pending</span>
+          <h3 id="pendingBookings">0</h3>
+          <p>Awaiting confirmation</p>
+        </article>
+
+        <article class="analytics-card">
+          <span class="analytics-label">Confirmed</span>
+          <h3 id="confirmedBookings">0</h3>
+          <p>Confirmed bookings</p>
+        </article>
+
+        <article class="analytics-card">
+          <span class="analytics-label">Completed</span>
+          <h3 id="completedBookings">0</h3>
+          <p>Completed consultations</p>
+        </article>
+
+        <article class="analytics-card">
+          <span class="analytics-label">Cancelled</span>
+          <h3 id="cancelledBookings">0</h3>
+          <p>Cancelled bookings</p>
+        </article>
+
+        <article class="analytics-card earnings-card">
+          <span class="analytics-label">Total Earnings</span>
+          <h3 id="totalEarnings">৳0</h3>
+          <p>From completed bookings</p>
+        </article>
+
+        <article class="analytics-card rating-card">
+          <span class="analytics-label">Average Rating</span>
+          <h3 id="averageRating">0.0 / 5</h3>
+          <p id="totalReviews">0 student reviews</p>
+        </article>
+
+      </div>
+
+      <!-- RECENT BOOKINGS -->
+      <section class="recent-bookings-card">
+        <div class="recent-bookings-heading">
+          <div>
+            <span class="panel-kicker">LATEST ACTIVITY</span>
+            <h2>Recent Bookings</h2>
+          </div>
+
+          <a href="./mentor-bookings.html">View all →</a>
+        </div>
+
+        <div class="table-responsive">
+          <table class="mentor-bookings-table">
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Plan</th>
+                <th>Price</th>
+                <th>Scheduled At</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+
+            <tbody id="recentBookingsBody">
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </section>
+
+  </main>
+
+  <script src="js/dashboard.js"></script>
+</body>
+
+</html>

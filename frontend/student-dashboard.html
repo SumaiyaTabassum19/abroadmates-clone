@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#A14646">
+  <title>AbroadMates dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body class="auth-page">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">Abroad<span>Mates</span><i>.</i></a>
+      <a href="./find-mentor.html">Find a Mentor</a>
+      <a href="./group-sessions.html">Group Sessions</a>
+      <a href="./my-bookings.html">My Bookings</a>
+      <a href="./my-group-registrations.html">My Group Sessions</a>
+      <button
+        id="logoutButton" class="button button-primary">Log out</button>
+      </div>
+  </header>
+  <main class="auth-main dashboard-main">
+    <section class="auth-intro">
+      <div class="eyebrow"><span class="eyebrow-line"></span> YOUR ABROADMATES SPACE</div>
+      <h1 id="welcomeTitle">Welcome!</h1>
+      <p id="welcomeCopy">Your account is ready. This is the starting point for your dashboard.</p>
+    </section>
+    <section class="auth-card"><span class="panel-kicker">ACCOUNT DETAILS</span>
+      <h2 id="accountName">Loading account…</h2>
+      <p id="accountEmail"></p>
+      <p id="accountRole"></p>
+      <div id="mentorProfileStatus" class="auth-notice" hidden></div>
+      <p class="auth-footnote">Dashboard features such as bookings, mentor profile editing and session management will
+        be added in their upcoming steps.</p><a class="button button-primary" href="index.html">Back to homepage →</a>
+    </section>
+  </main>
+  <script src="js/dashboard.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,253 @@
+:root {
+    --burgundy: #A14646;
+    --coral: #DA6556;
+    --orange: #EB895B;
+    --peach: #FDB773;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff9f4;
+    color: #352c2a;
+}
+
+.topbar {
+    background: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 12px #0000000d;
+}
+
+.brand {
+    color: var(--burgundy);
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.topbar a:last-child {
+    color: var(--burgundy);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 33.8px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    color: var(--burgundy);
+}
+
+.subtitle {
+    color: #777;
+    margin-bottom: 21px;
+}
+
+.session-card {
+    background: white;
+    padding: 23px;
+    border-radius: 13px;
+    margin-bottom: 17px;
+    border-left: 5px solid var(--orange);
+    box-shadow: 0 4px 15px #00000009;
+}
+
+.session-card h2 {
+    color: var(--burgundy);
+    margin-top: 0;
+}
+
+.session-meta {
+    line-height: 1.8;
+    color: #555;
+}
+
+.status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: #fff0d9;
+    color: #946000;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.status.cancelled {
+    background: #fbe3e3;
+    color: #a12c2c;
+}
+
+.status.attended {
+    background: #e0f3e6;
+    color: #246b3b;
+}
+
+.cancel-btn {
+    margin-top: 15px;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 7px;
+    background: var(--burgundy);
+    color: white;
+    cursor: pointer;
+}
+
+.cancel-btn:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.empty-state {
+    background: white;
+    padding: 22.5px;
+    text-align: center;
+    border-radius: 12px;
+    color: #777;
+}
+
+#message {
+    margin-bottom: 18px;
+    color: var(--burgundy);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   My Group Registrations
+======================================== */
+
+/* Large tablets and small laptops */
+@media (max-width: 1024px) {
+    .my-group-registrations-container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .my-group-registrations-layout {
+        grid-template-columns: 220px 1fr;
+        gap: 20px;
+    }
+
+    .my-group-registrations-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .my-group-registrations-container {
+        width: 100%;
+        padding: 16px;
+    }
+
+    .my-group-registrations-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .my-group-registrations-sidebar {
+        width: 100%;
+    }
+
+    .my-group-registrations-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .my-group-registrations-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .my-group-registrations-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .my-group-registration-card {
+        width: 100%;
+    }
+
+    .my-group-registration-actions {
+        flex-wrap: wrap;
+    }
+
+    .my-group-registrations-table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .my-group-registrations-table {
+        min-width: 650px;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    .my-group-registrations-container {
+        padding: 12px;
+    }
+
+    .my-group-registrations-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .my-group-registrations-header h1 {
+        font-size: 23px;
+    }
+
+    .my-group-registration-card {
+        padding: 14px;
+    }
+
+    .my-group-registration-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .my-group-registration-actions button,
+    .my-group-registration-actions a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .my-group-registrations-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .my-group-registrations-filters input,
+    .my-group-registrations-filters select,
+    .my-group-registrations-filters button {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .my-group-registrations-table {
+        font-size: 13px;
+    }
+}
+
+/* Prevent horizontal overflow */
+.my-group-registrations-container,
+.my-group-registration-card {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.my-group-registrations-container img {
+    max-width: 100%;
+    height: auto;
+}

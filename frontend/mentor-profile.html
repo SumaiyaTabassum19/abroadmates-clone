@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#A14646">
+
+    <title>My Mentor Profile | AbroadMates</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mentor-profile.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="profile-header">
+        <div class="header-container">
+
+            <a href="mentor-dashboard.html" class="brand">
+                Abroad<span>Mates</span><i>.</i>
+            </a>
+
+            <nav class="header-nav">
+                <a href="mentor-dashboard.html">Dashboard</a>
+                <a href="mentor-profile.html" class="active">My Profile</a>
+                <button type="button" id="logoutButton" class="logout-btn">
+                    Log out
+                </button>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="profile-main">
+
+        <section class="profile-intro">
+            <div class="eyebrow">
+                <span class="eyebrow-line"></span>
+                MENTOR ACCOUNT
+            </div>
+
+            <h1>My Profile</h1>
+
+            <p>
+                Build your mentor profile and help students plan
+                their study abroad journey.
+            </p>
+        </section>
+
+        <!-- API Messages -->
+        <div id="messageBox" class="message-box" role="status"
+             aria-live="polite"></div>
+
+        <!-- Profile Form -->
+        <section class="profile-card">
+
+            <div class="section-heading">
+                <h2>Professional Information</h2>
+                <p>Introduce yourself to students looking for guidance.</p>
+            </div>
+
+            <form id="profileForm">
+
+                <div class="form-group">
+                    <label for="headline">Professional Headline</label>
+
+                    <input
+                        type="text"
+                        id="headline"
+                        name="headline"
+                        maxlength="180"
+                        placeholder="Example: Computer Science Graduate from Canada"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="bio">About Me</label>
+
+                    <textarea
+                        id="bio"
+                        name="bio"
+                        rows="7"
+                        maxlength="5000"
+                        placeholder="Tell students about your education, experience and expertise..."
+                    ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="yearsExperience">Years of Experience</label>
+
+                    <input
+                        type="number"
+                        id="yearsExperience"
+                        name="years_experience"
+                        min="0"
+                        max="60"
+                        value="0"
+                    >
+                </div>
+
+                <button type="submit" id="saveButton" class="primary-btn">
+                    Save Profile
+                </button>
+
+            </form>
+
+        </section>
+
+        <!-- Consultation Plans -->
+        <section class="profile-card">
+
+            <div class="section-heading">
+                <h2>My Consultation Plans</h2>
+                <p>Your available consultation plans.</p>
+            </div>
+
+            <div id="plansContainer" class="plans-container">
+                <p class="muted">Loading consultation plans...</p>
+            </div>
+
+        </section>
+
+        <!-- Countries -->
+        <section class="profile-card">
+
+            <div class="section-heading">
+                <h2>Countries I Support</h2>
+                <p>Countries where you can guide students.</p>
+            </div>
+
+            <div id="countriesContainer" class="tag-container">
+                <p class="muted">Loading countries...</p>
+            </div>
+
+        </section>
+
+        <!-- Universities -->
+        <section class="profile-card">
+
+            <div class="section-heading">
+                <h2>Universities I Know</h2>
+                <p>Universities related to your mentoring experience.</p>
+            </div>
+
+            <div id="universitiesContainer" class="tag-container">
+                <p class="muted">Loading universities...</p>
+            </div>
+
+        </section>
+        <section class="file-upload-panel">
+    <h2>Profile photo</h2>
+    <p>Upload a JPG, PNG or WEBP image. Maximum size: 5 MB.</p>
+
+    <img
+        id="currentProfilePhoto"
+        src="./images/default-avatar.png"
+        alt="Mentor profile photo"
+        class="profile-preview"
+    >
+
+    <input
+        type="file"
+        id="profilePhotoInput"
+        accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
+    >
+
+    <button type="button" id="uploadPhotoButton">
+        Upload profile photo
+    </button>
+
+    <p id="photoStatus" role="status"></p>
+
+    <hr>
+
+    <h2>CV / Resume</h2>
+    <p>Upload your CV as a PDF. Maximum size: 10 MB.</p>
+
+    <input
+        type="file"
+        id="cvInput"
+        accept=".pdf,application/pdf"
+    >
+
+    <button type="button" id="uploadCvButton">
+        Upload CV
+    </button>
+
+    <button type="button" id="downloadCvButton">
+        Download my CV
+    </button>
+
+    <p id="cvStatus" role="status"></p>
+</section>
+
+    </main>
+
+    <footer class="profile-footer">
+        <p>© 2026 AbroadMates. All rights reserved.</p>
+    </footer>
+
+    <script src="js/mentor-profile.js"></script>
+    <script src="js/mentor-files.js"></script>
+</body>
+</html>

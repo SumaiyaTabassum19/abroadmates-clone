@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Sessions | AbroadMates</title>
+    <link rel="stylesheet" href="./css/group-sessions.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <a href="./index.html" class="brand">AbroadMates</a>
+
+        <nav>
+            <a href="./find-mentor.html">Find a Mentor</a>
+            <a href="./my-bookings.html">My Bookings</a>
+            <a href="./student-dashboard.html">Dashboard</a>
+            <button id="logoutBtn" class="logout-btn">Logout</button>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <p class="eyebrow">LEARN TOGETHER</p>
+            <h1>Group Sessions</h1>
+            <p>
+                Join interactive sessions, learn from experienced mentors,
+                and connect with other students planning to study abroad.
+            </p>
+        </section>
+
+        <section class="filters">
+            <div class="tabs">
+                <button class="tab active" data-view="upcoming">
+                    Upcoming Sessions
+                </button>
+
+                <button class="tab" data-view="past">
+                    Past Sessions
+                </button>
+            </div>
+
+            <div class="filter-row">
+                <label for="categoryFilter">Session Category</label>
+
+                <select id="categoryFilter">
+                    <option value="">All Categories</option>
+                </select>
+
+                <button id="resetFilter" class="reset-btn">
+                    Reset
+                </button>
+            </div>
+        </section>
+
+        <div id="message" class="message" role="status"></div>
+
+        <section>
+            <div class="results-heading">
+                <h2 id="resultsTitle">Upcoming Sessions</h2>
+                <span id="sessionCount">0 sessions</span>
+            </div>
+
+            <div id="sessionList" class="session-grid">
+                <p class="loading">Loading sessions...</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="./js/group-sessions.js"></script>
+</body>
+</html>
