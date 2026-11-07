@@ -115,9 +115,22 @@ function buildMentorCard(mentor) {
     sessions.className = "fm-headline";
     sessions.textContent = `${mentor.session_count || 0} completed sessions`;
 
+    // const price = document.createElement("p");
+    // price.className = "fm-price";
+    // price.textContent = `From ${mentor.min_price || "N/A"} BDT`;
     const price = document.createElement("p");
     price.className = "fm-price";
-    price.textContent = `From ${mentor.min_price || "N/A"} BDT`;
+
+    const startingPrice =
+        mentor.minimum_price ??
+        mentor.min_price ??
+        null;
+
+    const currency = mentor.currency || "BDT";
+
+    price.textContent = startingPrice !== null
+        ? `From ${Number(startingPrice).toLocaleString()} ${currency}`
+        : "Price unavailable";
 
     const link = document.createElement("a");
     link.className = "fm-view-btn";
@@ -220,7 +233,8 @@ function exportToExcel() {
             "Rating": Number(mentor.average_rating || 0),
             "Reviews": Number(mentor.review_count || 0),
             "Completed Sessions": Number(mentor.session_count || 0),
-            "Starting Price (BDT)": mentor.min_price ?? "N/A"
+            "Starting Price (BDT)": mentor.minimum_price ?? mentor.min_price ?? "N/A"
+            // "Starting Price (BDT)": mentor.min_price ?? "N/A"
         }));
 
         const worksheet = XLSX.utils.json_to_sheet(rows);
@@ -279,9 +293,12 @@ function exportToPDF() {
             Number(mentor.average_rating || 0).toFixed(1),
             String(mentor.review_count || 0),
             String(mentor.session_count || 0),
-            mentor.min_price != null
-                ? `${mentor.min_price} BDT`
-                : "N/A"
+            (mentor.minimum_price ?? mentor.min_price) != null
+                ? `${mentor.minimum_price ?? mentor.min_price} ${mentor.currency || "BDT"}`
+                : "Price unavailable"
+            // mentor.min_price != null
+            //     ? `${mentor.min_price} BDT`
+            //     : "N/A"
         ]);
 
         if (typeof doc.autoTable !== "function") {

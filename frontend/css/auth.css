@@ -232,6 +232,215 @@
     font-size: .72rem
 }
 
+
+/* AUTH PAGE NAVBAR */
+
+.auth-site-header {
+    position: relative;
+    z-index: 1000;
+    width: 100%;
+    background: #fffaf6;
+    border-bottom: 1px solid var(--line);
+}
+
+.auth-site-header .nav-wrap {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.auth-site-header .brand {
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.auth-site-header .responsive-nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(14px, 2vw, 28px);
+}
+
+.auth-site-header .responsive-nav-links a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.auth-site-header .responsive-nav-links a:hover {
+    color: #da6556;
+}
+
+.auth-site-header .auth-nav-login {
+    padding: 10px 20px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+}
+
+/* Hamburger */
+
+.auth-site-header .nav-toggle {
+    display: none;
+    width: 44px;
+    height: 42px;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.auth-site-header .nav-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    margin: 4px auto;
+    background: #a14646;
+    border-radius: 2px;
+}
+
+/* Tablet and mobile */
+
+@media (max-width: 950px) {
+    .auth-site-header .nav-wrap {
+        min-height: 70px;
+    }
+
+    .auth-site-header .nav-toggle {
+        display: block;
+    }
+
+    .auth-site-header .responsive-nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 18px 24px;
+        background: #fffaf6;
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 12px 24px rgba(80, 35, 35, .10);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .auth-site-header .responsive-nav-links.active {
+        display: flex;
+    }
+
+    .auth-site-header .responsive-nav-links a {
+        display: block;
+        padding: 13px 8px;
+        white-space: normal;
+    }
+
+    .auth-site-header .auth-nav-login {
+        margin-top: 8px;
+        text-align: center;
+    }
+}
+
+/* STUDENT DASHBOARD NAVBAR */
+
+.student-dashboard-header {
+    position: relative;
+    z-index: 1100;
+    background: #fffaf6;
+    border-bottom: 1px solid var(--line);
+}
+
+.student-dashboard-header .nav-wrap {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.student-dashboard-header .brand {
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.student-dashboard-header .responsive-nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(12px, 1.7vw, 24px);
+}
+
+.student-dashboard-header .responsive-nav-links a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.student-dashboard-header .responsive-nav-links a:hover {
+    color: #da6556;
+}
+
+.student-dashboard-header .responsive-nav-links button {
+    flex-shrink: 0;
+}
+
+/* Tablet and mobile */
+
+@media (max-width: 950px) {
+    .student-dashboard-header .nav-wrap {
+        min-height: 70px;
+    }
+
+    .student-dashboard-header .nav-toggle {
+        display: flex !important;
+        margin-left: auto;
+    }
+
+    .student-dashboard-header .responsive-nav-links {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        min-width: 100%;
+        padding: 12px 20px !important;
+        background: #fffaf6;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 12px 22px rgba(80, 35, 30, .10);
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0 !important;
+    }
+
+    .student-dashboard-header .responsive-nav-links.is-open {
+        display: flex !important;
+    }
+
+    .student-dashboard-header .responsive-nav-links a {
+        display: block;
+        width: 100%;
+        padding: 13px 10px;
+        white-space: normal;
+        border-bottom: 1px solid #f3e8e3;
+    }
+
+    .student-dashboard-header .responsive-nav-links button {
+        width: 100%;
+        margin: 12px 0 4px;
+    }
+}
+
+
 @media (max-width: 1023px) {
     .auth-main {
         width: calc(100% - 48px);

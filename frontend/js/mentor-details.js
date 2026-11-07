@@ -39,7 +39,7 @@ async function loadMentorDetails() {
 
     try {
         const response = await fetch(
-            `${API}/public/mentors/${mentorId}`
+            `${API}/catalog/mentors/${mentorId}`
         );
 
         const result = await response.json();

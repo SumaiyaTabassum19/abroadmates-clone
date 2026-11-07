@@ -10,20 +10,21 @@
 <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/auth.css">
   <link rel="stylesheet" href="css/mentor-dashboard.css">
+    <link rel="stylesheet" href="./css/responsive-navbar.css">
 </head>
 
 <body class="auth-page">
 
   <header class="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="index.html">Abroad<span>Mates</span><i>.</i></a>
-      <a href="./mentor-profile.html">My Profile</a>
+      <a class="brand" href="index.html">Abroad<span>Mates</span><i>.</i></a><button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="responsive-nav-links"><a href="./mentor-profile.html">My Profile</a>
       <a href="./mentor-expertise.html">Consultation Plans</a>
       <a href="./mentor-group-sessions.html">Manage Sessions</a>
       <a href="./mentor-bookings.html">Manage Bookings</a>
       <a href="./mentor-reports.html">Earnings & Reports</a>
       <button id="logoutButton" class="button button-primary">Log out</button>
-    </div>
+    </div></div>
   </header>
 
   <main class="auth-main dashboard-main">
@@ -159,6 +160,7 @@
   </main>
 
   <script src="js/dashboard.js"></script>
+    <script src="./js/responsive-navbar.js"></script>
 </body>
 
 </html>

@@ -6,22 +6,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#A14646">
   <title>AbroadMates dashboard</title>
-<link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="./css/responsive-navbar.css">
 </head>
 
 <body class="auth-page">
-  <header class="site-header">
+
+  <header class="site-header student-dashboard-header">
     <div class="container nav-wrap">
-      <a class="brand" href="index.html">Abroad<span>Mates</span><i>.</i></a>
-      <a href="./find-mentor.html">Find a Mentor</a>
-      <a href="./group-sessions.html">Group Sessions</a>
-      <a href="./my-bookings.html">My Bookings</a>
-      <a href="./my-group-registrations.html">My Group Sessions</a>
-      <button
-        id="logoutButton" class="button button-primary">Log out</button>
-      </div>
+
+      <a class="brand" href="./index.html">
+        Abroad<span>Mates</span><i>.</i>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-controls="studentResponsiveNav"
+        aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="responsive-nav-links" id="studentResponsiveNav">
+        <a href="./find-mentor.html">Find a Mentor</a>
+        <a href="./group-sessions.html">Group Sessions</a>
+        <a href="./my-bookings.html">My Bookings</a>
+        <a href="./my-group-registrations.html">My Group Sessions</a>
+        <button id="logoutButton" class="button button-primary" type="button">
+          Log out
+        </button>
+      </nav>
+
+    </div>
   </header>
+
   <main class="auth-main dashboard-main">
     <section class="auth-intro">
       <div class="eyebrow"><span class="eyebrow-line"></span> YOUR ABROADMATES SPACE</div>
@@ -38,6 +56,7 @@
     </section>
   </main>
   <script src="js/dashboard.js"></script>
+  <script src="./js/responsive-navbar.js"></script>
 </body>
 
 </html>

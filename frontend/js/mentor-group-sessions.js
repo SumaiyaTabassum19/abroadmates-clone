@@ -2,6 +2,8 @@ const API_BASE_URL = "http://localhost:5000/api";
 
 const token = localStorage.getItem("abroadmates_token");
 
+// DOM ELEMENTS
+
 const sessionForm = document.getElementById("sessionForm");
 const sessionList = document.getElementById("sessionList");
 const categorySelect = document.getElementById("categoryId");
@@ -22,9 +24,13 @@ const resetFormBtn = document.getElementById("resetFormBtn");
 const refreshBtn = document.getElementById("refreshBtn");
 const logoutBtn = document.getElementById("logoutBtn");
 
+// AUTHENTICATION
+
 if (!token) {
     window.location.href = "./auth.html";
 }
+
+// HELPER FUNCTIONS
 
 function escapeHTML(value) {
     return String(value ?? "").replace(/[&<>"']/g, character => ({
@@ -51,22 +57,36 @@ async function apiRequest(url, options = {}) {
         ...options,
         headers: {
             Authorization: `Bearer ${token}`,
-            ...(options.body ? { "Content-Type": "application/json" } : {}),
+            ...(options.body ? {
+                "Content-Type": "application/json"
+            } : {}),
             ...options.headers
         }
     });
 
-    const result = await response.json();
+    let result;
+
+    try {
+        result = await response.json();
+    } catch {
+        throw new Error("The server returned an invalid response.");
+    }
 
     if (response.status === 401 || response.status === 403) {
         localStorage.removeItem("abroadmates_token");
         localStorage.removeItem("abroadmates_user");
+
         window.location.href = "./auth.html";
-        throw new Error("Your login session has expired or you do not have Mentor access.");
+
+        throw new Error(
+            "Your login session has expired or you do not have Mentor access."
+        );
     }
 
     if (!response.ok || result.success === false) {
-        throw new Error(result.message || "The request could not be completed.");
+        throw new Error(
+            result.message || "The request could not be completed."
+        );
     }
 
     return result;
@@ -77,7 +97,9 @@ function formatDate(value) {
 
     const date = new Date(String(value).replace(" ", "T"));
 
-    if (Number.isNaN(date.getTime())) return value;
+    if (Number.isNaN(date.getTime())) {
+        return String(value);
+    }
 
     return date.toLocaleString([], {
         dateStyle: "medium",
@@ -88,43 +110,54 @@ function formatDate(value) {
 function toDateTimeLocal(value) {
     if (!value) return "";
 
-    // MySQL DATETIME is returned as YYYY-MM-DD HH:mm:ss
     return String(value).replace(" ", "T").slice(0, 16);
 }
 
+// LOAD SESSION CATEGORIES
+
 async function loadCategories() {
-    const result = await fetch(
+    const response = await fetch(
         `${API_BASE_URL}/group-sessions/categories`
     );
 
-    const data = await result.json();
+    const data = await response.json();
 
-    if (!result.ok || !data.success) {
-        throw new Error(data.message || "Could not load categories.");
+    if (!response.ok || !data.success) {
+        throw new Error(
+            data.message || "Could not load session categories."
+        );
     }
 
     categorySelect.innerHTML =
         '<option value="">Select a category</option>';
 
-    data.data.forEach(category => {
+    (data.data || []).forEach(category => {
         const option = document.createElement("option");
+
         option.value = category.category_id;
         option.textContent = category.category_name;
+
         categorySelect.appendChild(option);
     });
 }
 
+// RESET FORM
+
 function resetForm() {
     sessionForm.reset();
+
     sessionIdInput.value = "";
     capacityInput.value = 20;
 
     formTitle.textContent = "Create a Group Session";
     saveBtn.textContent = "Create Session";
+
     cancelEditBtn.classList.add("hidden");
 
     clearMessage();
 }
+
+// RENDER GROUP SESSIONS
 
 function renderSessions(sessions) {
     if (!sessions.length) {
@@ -139,19 +172,25 @@ function renderSessions(sessions) {
 
     sessionList.innerHTML = sessions.map(session => {
         const registered = Number(session.registered_count || 0);
+
         const canManage =
             session.status === "scheduled" &&
             new Date(String(session.starts_at).replace(" ", "T")) > new Date();
 
         const meetingLink = session.meeting_link
-            ? `<a class="meeting-link"
-                  href="${escapeHTML(session.meeting_link)}"
-                  target="_blank"
-                  rel="noopener noreferrer">Open meeting link</a>`
+            ? `
+                <a class="meeting-link"
+                   href="${escapeHTML(session.meeting_link)}"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Open meeting link
+                </a>
+            `
             : "";
 
         return `
             <article class="session-card">
+
                 <span class="category-label">
                     ${escapeHTML(session.category_name)}
                 </span>
@@ -167,6 +206,7 @@ function renderSessions(sessions) {
                 </p>
 
                 <div class="session-details">
+
                     <div class="detail-item">
                         <span class="detail-label">Starts</span>
                         <span class="detail-value">
@@ -187,62 +227,41 @@ function renderSessions(sessions) {
                             ${registered} / ${escapeHTML(session.capacity)}
                         </span>
                     </div>
+
                 </div>
 
                 ${meetingLink}
 
                 ${canManage ? `
-                    <div class="session-actions">
-                        <button
-                            class="edit-btn"
-                            data-action="edit"
-                            data-id="${escapeHTML(session.session_id)}"
-                        >
-                            Edit Session
-                        </button>
-
-                        <button
-                            class="cancel-btn"
-                            data-action="cancel"
-                            data-id="${escapeHTML(session.session_id)}"
-                        >
-                            Cancel Session
-                        </button>
-                    </div>
-                    ${`
     <div class="session-actions">
         <button
             class="edit-btn"
             data-action="edit"
-            data-id="${escapeHTML(session.session_id)}"
-            ${canManage ? "" : "disabled"}
-        >
+            data-id="${escapeHTML(session.session_id)}">
             Edit Session
         </button>
 
         <button
             class="cancel-btn"
             data-action="cancel"
-            data-id="${escapeHTML(session.session_id)}"
-            ${canManage ? "" : "disabled"}
-        >
+            data-id="${escapeHTML(session.session_id)}">
             Cancel Session
         </button>
 
         <button
             class="edit-btn"
             data-action="attendees"
-            data-id="${escapeHTML(session.session_id)}"
-        >
+            data-id="${escapeHTML(session.session_id)}">
             View Attendees
         </button>
     </div>
-`}
-                ` : ""}
+` : ""}
+
             </article>
         `;
     }).join("");
 
+    // Attach button events
     sessionList.querySelectorAll("[data-action]").forEach(button => {
         button.addEventListener("click", () => {
             const session = sessions.find(
@@ -252,16 +271,22 @@ function renderSessions(sessions) {
             if (!session) return;
 
             if (button.dataset.action === "edit") {
-    editSession(session);
-} else if (button.dataset.action === "cancel") {
-    cancelSession(session.session_id);
-} else if (button.dataset.action === "attendees") {
-    window.location.href =
-        `./mentor-session-attendees.html?id=${session.session_id}`;
-}
+                editSession(session);
+            }
+
+            if (button.dataset.action === "cancel") {
+                cancelSession(session.session_id);
+            }
+
+            if (button.dataset.action === "attendees") {
+                window.location.href =
+                    `./mentor-session-attendees.html?id=${session.session_id}`;
+            }
         });
     });
 }
+
+// LOAD MENTOR'S GROUP SESSIONS
 
 async function loadSessions() {
     sessionList.innerHTML =
@@ -276,24 +301,32 @@ async function loadSessions() {
 
     } catch (error) {
         sessionList.innerHTML = "";
+
         showMessage(error.message, "error");
     }
 }
+
+// EDIT SESSION
 
 function editSession(session) {
     clearMessage();
 
     sessionIdInput.value = session.session_id;
+
     titleInput.value = session.title;
     descriptionInput.value = session.description || "";
+
     categorySelect.value = session.category_id;
+
     startsAtInput.value = toDateTimeLocal(session.starts_at);
     endsAtInput.value = toDateTimeLocal(session.ends_at);
+
     capacityInput.value = session.capacity;
     meetingLinkInput.value = session.meeting_link || "";
 
     formTitle.textContent = "Edit Group Session";
     saveBtn.textContent = "Save Changes";
+
     cancelEditBtn.classList.remove("hidden");
 
     window.scrollTo({
@@ -302,7 +335,12 @@ function editSession(session) {
     });
 }
 
+// =====================================
+// CANCEL SESSION
+// =====================================
+
 async function cancelSession(sessionId) {
+
     const confirmed = window.confirm(
         "Are you sure you want to cancel this group session? Registered students will be marked as cancelled."
     );
@@ -312,10 +350,15 @@ async function cancelSession(sessionId) {
     try {
         const result = await apiRequest(
             `${API_BASE_URL}/mentor/group-sessions/${sessionId}/cancel`,
-            { method: "PATCH" }
+            {
+                method: "PATCH"
+            }
         );
 
-        showMessage(result.message || "Session cancelled successfully.");
+        showMessage(
+            result.message || "Session cancelled successfully."
+        );
+
         await loadSessions();
 
     } catch (error) {
@@ -323,19 +366,29 @@ async function cancelSession(sessionId) {
     }
 }
 
+// CREATE / UPDATE SESSION
+
 sessionForm.addEventListener("submit", async event => {
+
     event.preventDefault();
+
     clearMessage();
 
     const sessionId = sessionIdInput.value;
 
     const payload = {
         title: titleInput.value.trim(),
+
         description: descriptionInput.value.trim(),
+
         categoryId: categorySelect.value,
+
         startsAt: startsAtInput.value,
+
         endsAt: endsAtInput.value,
+
         capacity: capacityInput.value,
+
         meetingLink: meetingLinkInput.value.trim()
     };
 
@@ -343,6 +396,7 @@ sessionForm.addEventListener("submit", async event => {
     saveBtn.textContent = "Saving...";
 
     try {
+
         const url = sessionId
             ? `${API_BASE_URL}/mentor/group-sessions/${sessionId}`
             : `${API_BASE_URL}/mentor/group-sessions`;
@@ -354,39 +408,66 @@ sessionForm.addEventListener("submit", async event => {
 
         showMessage(
             result.message ||
-            (sessionId ? "Session updated." : "Session created.")
+            (sessionId
+                ? "Session updated successfully."
+                : "Session created successfully.")
         );
 
         resetForm();
+
         await loadSessions();
 
     } catch (error) {
+
         showMessage(error.message, "error");
+
     } finally {
+
         saveBtn.disabled = false;
+
         saveBtn.textContent = sessionIdInput.value
             ? "Save Changes"
             : "Create Session";
     }
+
 });
+
+// BUTTON EVENTS
 
 resetFormBtn.addEventListener("click", resetForm);
+
 cancelEditBtn.addEventListener("click", resetForm);
+
 refreshBtn.addEventListener("click", loadSessions);
 
+// LOGOUT
+
 logoutBtn.addEventListener("click", () => {
+
     localStorage.removeItem("abroadmates_token");
+
     localStorage.removeItem("abroadmates_user");
+
     window.location.href = "./auth.html";
+
 });
 
+// INITIALIZE PAGE
+
 async function initializePage() {
+
     try {
+
         await loadCategories();
+
         await loadSessions();
+
     } catch (error) {
+
         showMessage(error.message, "error");
+
     }
+
 }
 
 initializePage();
