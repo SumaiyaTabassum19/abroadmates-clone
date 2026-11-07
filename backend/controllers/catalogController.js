@@ -44,14 +44,44 @@ const getMentors = async (req, res, next) => {
 const getMentorById = async (req, res, next) => {
   try {
     const mentorId = Number(req.params.mentorId);
+
     if (!Number.isInteger(mentorId) || mentorId < 1) {
-      return res.status(400).json({ success: false, message: 'Invalid mentor ID.' });
+      return res.status(400).json({
+        success: false,
+        message: 'Invalid mentor ID.'
+      });
     }
-    const [sets] = await pool.query('CALL sp_get_mentor_by_id(?)', [mentorId]);
+
+    const [sets] = await pool.query(
+      'CALL sp_get_mentor_by_id(?)',
+      [mentorId]
+    );
+
     const profile = sets[0]?.[0] || null;
-    if (!profile) return res.status(404).json({ success: false, message: 'Mentor not found.' });
-    res.json({ success: true, data: { ...profile, plans: sets[1] || [] } });
-  } catch (error) { next(error); }
+
+    if (!profile) {
+      return res.status(404).json({
+        success: false,
+        message: 'Mentor not found.'
+      });
+    }
+
+    res.json({
+      success: true,
+      data: {
+        profile,
+        plans: sets[1] || [],
+        countries: sets[2] || [],
+        universities: sets[3] || [],
+        programs: sets[4] || [],
+        services: sets[5] || [],
+        scholarships: sets[6] || []
+      }
+    });
+
+  } catch (error) {
+    next(error);
+  }
 };
 
 module.exports = { getCountries, getUniversitiesByCountry, getMentors, getMentorById };

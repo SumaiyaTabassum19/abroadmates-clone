@@ -10,16 +10,26 @@ const registerForSession = async (req, res) => {
         });
     }
 
-    const [results] = await pool.query(
-        "CALL sp_register_for_group_session(?,?)",
-        [req.user.userId, sessionId]
-    );
+    try {
+        const [results] = await pool.query(
+            "CALL sp_register_for_group_session(?, ?)",
+            [sessionId, req.user.userId]
+        );
 
-    return res.status(201).json({
-        success: true,
-        message: "You are registered for this group session.",
-        data: results[0]?.[0] || {}
-    });
+        return res.status(201).json({
+            success: true,
+            message: "You are registered for this group session.",
+            data: results[0]?.[0] || {}
+        });
+
+    } catch (error) {
+        console.error("Group session registration error:", error);
+
+        return res.status(400).json({
+            success: false,
+            message: error.sqlMessage || "Registration failed."
+        });
+    }
 };
 
 const cancelRegistration = async (req, res) => {

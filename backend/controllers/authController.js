@@ -38,10 +38,11 @@ async function register(req, res) {
       [roleRow.role_id, String(fullName).trim(), normalizedEmail, passwordHash]
     );
 
-    // Every Mentor account gets one master mentor profile automatically.
+    // Every Mentor account gets a published master mentor profile automatically.
     if (role === 'Mentor') {
       await conn.execute(
-        'INSERT INTO mentor_profiles (user_id) VALUES (?)',
+        `INSERT INTO mentor_profiles (user_id, is_published)
+     VALUES (?, 1)`,
         [userResult.insertId]
       );
     }

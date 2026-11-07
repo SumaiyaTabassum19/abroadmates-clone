@@ -10,12 +10,12 @@ const getSessionRegistrations = async (req, res) => {
             message: "Invalid session ID."
         });
     }
-
+    
     const [resultSets] = await pool.query(
-        "CALL sp_get_my_session_registrations(?,?)",
-        [req.user.userId, sessionId]
-    );
-
+    "CALL sp_get_my_session_registrations(?)",
+    [req.user.userId, sessionId]
+);
+    
     const registrations = resultSets[0] || [];
 
     // An empty list may mean the session has no registrations.
